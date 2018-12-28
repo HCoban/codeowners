@@ -1,0 +1,53 @@
+{
+  "name": "codeowners",
+  "displayName": "CodeOwners",
+  "description": "See Github code owner of current file",
+  "version": "0.0.1",
+  "publisher": "HCoban",
+  "engines": {
+    "vscode": "^1.27.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "*"
+  ],
+  "main": "./out/extension",
+  "contributes": {
+    "commands": [
+      {
+        "command": "extension.displayOwner",
+        "title": "Display Code Owner"
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "CodeOwners configuration",
+      "properties": {
+        "extension.codeOwnersPath": {
+          "type": "string",
+          "default": "",
+          "description": "Path where CODEOWNERS file is located"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "postinstall": "node ./node_modules/vscode/bin/install",
+    "test": "npm run compile && node ./node_modules/vscode/bin/test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^2.2.42",
+    "@types/node": "^8.10.25",
+    "tslint": "^5.8.0",
+    "typescript": "^2.6.1",
+    "vscode": "^1.1.21"
+  },
+  "dependencies": {
+    "ignore": "^5.0.4"
+  }
+}
